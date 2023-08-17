@@ -1,4 +1,4 @@
-export const TMDB_BASE_URL = "https://api.themoviedb.org/3/";
+export const TMDB_BASE_URL = "https://api.themoviedb.org/3/search/movie?query=";
 export const TMDB_FETCH_OPTIONS = {
 	method: "GET",
 	headers: {

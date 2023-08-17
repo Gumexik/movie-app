@@ -1,7 +1,17 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import search from "../assets/search.svg";
+import { useState } from "react";
 
-const Navigation = () => {
+const Navigation = ({ setSearchValue }) => {
+	const [searchInput, setSearchInput] = useState("");
+
+	const handleSubmit = (e, searchInput) => {
+		e.preventDefault();
+		setSearchValue(searchInput);
+		setSearchInput("");
+	};
+
 	return (
 		<nav className='bg-black px-8 py-3'>
 			<div className='flex justify-between'>
@@ -16,7 +26,10 @@ const Navigation = () => {
 						Trending
 					</Link>
 				</div>
-				<div className='flex items-center'>
+				<form
+					onSubmit={(e) => handleSubmit(e, searchInput)}
+					className='flex items-center'
+				>
 					<label htmlFor='searchInput' className='hidden'>
 						Search
 					</label>
@@ -26,6 +39,10 @@ const Navigation = () => {
 						placeholder='Search for movie'
 						className='p-2 w-80 rounded outline-none relative'
 						autoComplete='off'
+						value={searchInput}
+						onChange={(e) => {
+							setSearchInput(e.target.value);
+						}}
 					></input>
 					<img
 						src={search}
@@ -33,7 +50,7 @@ const Navigation = () => {
 						width={20}
 						className='absolute right-10'
 					/>
-				</div>
+				</form>
 			</div>
 		</nav>
 	);
