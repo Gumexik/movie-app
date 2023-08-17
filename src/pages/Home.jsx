@@ -1,9 +1,13 @@
+import MovieDisplay from "../components/MovieDisplay";
+import Navigation from "../components/Navigation";
+
 const Home = () => {
 	return (
-		<div className='max-w-7xl mx-auto'>
-			<h1 className='p-4 text-center text-xl font-bold'>
-				Movie Search Application
-			</h1>
+		<div className='bg-[#0b1e25] font-open-sans min-h-screen'>
+			<Navigation />
+			<div className='max-w-7xl mx-auto'>
+				<MovieDisplay />
+			</div>
 		</div>
 	);
 };
