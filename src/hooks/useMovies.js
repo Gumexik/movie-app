@@ -10,6 +10,7 @@ const useMovies = () => {
 	useEffect(() => {
 		if (searchValue) {
 			fetchMovies(searchValue);
+			setSearchValue(null);
 		}
 	}, [searchValue]);
 
@@ -21,8 +22,7 @@ const useMovies = () => {
 		);
 		if (result) {
 			setIsLoading(false);
-			setMovies(result.data.results);
-			console.log(movies);
+			setMovies(result?.data?.results);
 		} else {
 			setIsLoading(true);
 		}

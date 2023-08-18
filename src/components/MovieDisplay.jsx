@@ -1,8 +1,5 @@
-import useMovies from "../hooks/useMovies";
-
-const MovieDisplay = () => {
-	const { movies, isLoading } = useMovies();
-
+/* eslint-disable react/prop-types */
+const MovieDisplay = ({ isLoading, movies }) => {
 	return (
 		<div className='text-white'>
 			{isLoading && <div>Loading...</div>}
