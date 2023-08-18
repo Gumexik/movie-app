@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 const MovieCard = ({ movie }) => {
 	return (
-		<div className='w-48 bg-red-300 rounded-md overflow-hidden'>
+		<div className='w-48 rounded-md overflow-hidden'>
 			<img
 				src={
 					movie.poster_path
