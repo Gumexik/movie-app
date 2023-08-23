@@ -10,6 +10,10 @@ function App() {
 			element: <Home />,
 		},
 		{
+			path: "/:singleMovie",
+			element: <SingleMovie />,
+		},
+		{
 			path: "/trending",
 			element: <TrendingMovies />,
 		},
