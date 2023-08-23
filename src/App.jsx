@@ -9,11 +9,14 @@ function App() {
 		{
 			path: "/",
 			element: <Home />,
+			children: [
+				{
+					path: ":singleMovie",
+					element: <SingleMovie />,
+				},
+			],
 		},
-		{
-			path: "/:singleMovie",
-			element: <SingleMovie />,
-		},
+
 		{
 			path: "/trending",
 			element: <TrendingMovies />,
