@@ -6,18 +6,19 @@ const useMovies = () => {
 	const [movies, setMovies] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [searchValue, setSearchValue] = useState(null);
+	const [page, setPage] = useState("&page=1");
 
 	useEffect(() => {
 		if (searchValue) {
 			fetchMovies(searchValue);
 			setSearchValue(null);
 		}
-	}, [searchValue]);
+	}, [searchValue, page]);
 
 	const fetchMovies = async (searchValue) => {
 		setIsLoading(true);
 		const result = await axios.get(
-			`${TMDB_BASE_URL}${searchValue}`,
+			`${TMDB_BASE_URL}${searchValue}${page}`,
 			TMDB_FETCH_OPTIONS
 		);
 		if (result) {
@@ -27,7 +28,7 @@ const useMovies = () => {
 			setIsLoading(true);
 		}
 	};
-	return { movies, fetchMovies, setSearchValue, isLoading };
+	return { movies, fetchMovies, setSearchValue, isLoading, setPage, page };
 };
 
 export default useMovies;
