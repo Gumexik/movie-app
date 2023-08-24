@@ -10,25 +10,40 @@ const useMovies = () => {
 
 	useEffect(() => {
 		if (searchValue) {
-			fetchMovies(searchValue);
-			setSearchValue(null);
+			if (movies.length > 1) {
+				setMovies([]);
+				fetchMovies(searchValue);
+				setSearchValue(null);
+			} else {
+				fetchMovies(searchValue);
+				setSearchValue(null);
+			}
 		}
 	}, [searchValue, page]);
 
 	const fetchMovies = async (searchValue) => {
 		setIsLoading(true);
-		const result = await axios.get(
-			`${TMDB_BASE_URL}${searchValue}${page}`,
-			TMDB_FETCH_OPTIONS
-		);
-		if (result) {
-			setIsLoading(false);
-			setMovies(result?.data?.results);
-		} else {
-			setIsLoading(true);
-		}
+		setTimeout(async () => {
+			const result = await axios.get(
+				`${TMDB_BASE_URL}${searchValue}${page}`,
+				TMDB_FETCH_OPTIONS
+			);
+			if (result) {
+				setIsLoading(false);
+				setMovies(result?.data?.results);
+			} else {
+				setIsLoading(true);
+			}
+		}, 1000);
 	};
-	return { movies, fetchMovies, setSearchValue, isLoading, setPage, page };
+	return {
+		movies,
+		fetchMovies,
+		setSearchValue,
+		isLoading,
+		setPage,
+		page,
+	};
 };
 
 export default useMovies;
