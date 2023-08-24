@@ -1,15 +1,17 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import search from "../assets/search.svg";
 import { useState } from "react";
 
-const Navigation = ({ setSearchValue }) => {
+const Navigation = ({ setSearchValue, isLoading }) => {
 	const [searchInput, setSearchInput] = useState("");
+	const navigate = useNavigate();
 
 	const handleSubmit = (e, searchInput) => {
 		e.preventDefault();
 		setSearchValue(searchInput);
 		setSearchInput("");
+		navigate("/");
 	};
 
 	return (
@@ -36,10 +38,11 @@ const Navigation = ({ setSearchValue }) => {
 					<input
 						type='text'
 						id='searchInput'
-						placeholder='Search for movie'
+						placeholder={isLoading ? "Loading results..." : "Search for movie"}
 						className='p-2 w-80 rounded outline-none relative'
 						autoComplete='off'
 						value={searchInput}
+						disabled={isLoading ? true : false}
 						onChange={(e) => {
 							setSearchInput(e.target.value);
 						}}
