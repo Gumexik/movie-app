@@ -14,11 +14,6 @@ const useMovies = () => {
 	const [page, setPage] = useState("&page=1");
 
 	useEffect(() => {
-		fetchPopularMovies();
-		console.log(popularMovies);
-	}, []);
-
-	useEffect(() => {
 		if (searchValue) {
 			if (movies.length > 1) {
 				setMovies([]);
@@ -48,10 +43,12 @@ const useMovies = () => {
 	};
 
 	const fetchPopularMovies = async () => {
+		setIsLoading(true);
 		const result = await axios.get(TMDB_POPULAR_MOVIES_URL, TMDB_FETCH_OPTIONS);
 		if (result) {
 			setPopularMovies(result?.data?.results);
-		}
+			setIsLoading(false);
+		} else setIsLoading(true);
 	};
 	return {
 		movies,
@@ -59,6 +56,8 @@ const useMovies = () => {
 		isLoading,
 		setPage,
 		page,
+		popularMovies,
+		fetchPopularMovies,
 	};
 };
 
