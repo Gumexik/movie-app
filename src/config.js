@@ -1,4 +1,7 @@
 export const TMDB_BASE_URL = "https://api.themoviedb.org/3/search/movie?query=";
+export const TMDB_SINLE_MOVIE_URL = "https://api.themoviedb.org/3/movie/";
+export const TMDB_POPULAR_MOVIES_URL =
+	"https://api.themoviedb.org/3/movie/popular?language=en-UK&page=1";
 export const TMDB_FETCH_OPTIONS = {
 	method: "GET",
 	headers: {

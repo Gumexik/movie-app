@@ -9,7 +9,7 @@ const MovieCard = ({ movie }) => {
 					{movie.title}
 				</p>
 				<Link
-					to={`/:${movie.id}`}
+					to={`/movies/${movie.id}`}
 					className='text-sm absolute bottom-5 px-4 py-2 bg-yellow-700 rounded-md mx-auto'
 				>
 					Read More

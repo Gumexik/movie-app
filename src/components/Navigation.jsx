@@ -11,7 +11,7 @@ const Navigation = ({ setSearchValue, isLoading }) => {
 		e.preventDefault();
 		setSearchValue(searchInput);
 		setSearchInput("");
-		navigate("/");
+		navigate("/movies");
 	};
 
 	return (
@@ -23,9 +23,6 @@ const Navigation = ({ setSearchValue, isLoading }) => {
 					</h1>
 					<Link to='/' className='text-[#ca854c] uppercase text-sm'>
 						Home
-					</Link>
-					<Link to='/trending' className='text-[#ca854c] uppercase text-sm'>
-						Trending
 					</Link>
 				</div>
 				<form
