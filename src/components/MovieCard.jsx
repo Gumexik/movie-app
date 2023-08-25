@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 const MovieCard = ({ movie }) => {
 	return (
-		<div className='w-48 rounded-md overflow-hidden relative'>
+		<div className=' rounded-md overflow-hidden relative'>
 			<div className='top-0 left-0 h-full w-full hover:bg-black/70 transition-all duration-200 absolute p-4 opacity-0 hover:opacity-100 flex justify-center'>
 				<p className='text-lg font-bold select-none text-center'>
 					{movie.title}

@@ -19,6 +19,9 @@ const SingleMovie = () => {
 						: `https://image.tmdb.org/t/p/original/${movie?.poster_path}`
 				}
 				alt='movie backdrop'
+				className={
+					movie?.backdrop_path ? "mx-auto my-4 w-3/4" : "mx-auto my-4 w-1/4"
+				}
 			/>
 			<div className='text-white'>{movie?.overview}</div>;
 		</div>
