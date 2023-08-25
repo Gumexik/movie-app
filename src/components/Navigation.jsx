@@ -16,8 +16,8 @@ const Navigation = ({ setSearchValue, isLoading }) => {
 
 	return (
 		<nav className='bg-black px-8 py-3'>
-			<div className='flex justify-between'>
-				<div className='flex gap-8 items-center '>
+			<div className='flex flex-col md:flex-row justify-between gap-4 md:-gap-0'>
+				<div className='flex gap-8 items-center justify-center'>
 					<h1 className='pr-8 text-lg font-bold text-white  select-none border-r border-white/20 w-fit'>
 						Movie Search Application
 					</h1>
@@ -27,7 +27,7 @@ const Navigation = ({ setSearchValue, isLoading }) => {
 				</div>
 				<form
 					onSubmit={(e) => handleSubmit(e, searchInput)}
-					className='flex items-center'
+					className='flex items-center justify-center'
 				>
 					<label htmlFor='searchInput' className='hidden'>
 						Search
@@ -36,7 +36,7 @@ const Navigation = ({ setSearchValue, isLoading }) => {
 						type='text'
 						id='searchInput'
 						placeholder={isLoading ? "Loading results..." : "Search for movie"}
-						className='p-2 w-80 rounded outline-none relative'
+						className='p-2 w-full md:w-80 rounded outline-none relative'
 						autoComplete='off'
 						value={searchInput}
 						disabled={isLoading ? true : false}
