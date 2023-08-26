@@ -14,6 +14,10 @@ const useMovies = () => {
 	const [page, setPage] = useState("&page=1");
 
 	useEffect(() => {
+		fetchPopularMovies();
+	}, []);
+
+	useEffect(() => {
 		if (searchValue) {
 			if (movies.length > 1) {
 				setMovies([]);
@@ -57,7 +61,6 @@ const useMovies = () => {
 		setPage,
 		page,
 		popularMovies,
-		fetchPopularMovies,
 	};
 };
 

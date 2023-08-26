@@ -7,14 +7,8 @@ import SingleMovie from "./pages/SingleMovie";
 import Root from "./layout/Root";
 import useMovies from "./hooks/useMovies.js";
 function App() {
-	const {
-		setSearchValue,
-		movies,
-		isLoading,
-		setMovies,
-		fetchPopularMovies,
-		popularMovies,
-	} = useMovies();
+	const { setSearchValue, movies, isLoading, setMovies, popularMovies } =
+		useMovies();
 
 	const router = createBrowserRouter([
 		{
@@ -32,7 +26,6 @@ function App() {
 					path: "/",
 					element: (
 						<TrendingMovies
-							fetchPopularMovies={fetchPopularMovies}
 							popularMovies={popularMovies}
 							isLoading={isLoading}
 						/>
