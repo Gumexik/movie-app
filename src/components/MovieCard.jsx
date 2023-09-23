@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 const MovieCard = ({ movie }) => {
 	return (
-		<div className=' rounded-md overflow-hidden relative'>
+		<div className=' rounded-md overflow-hidden relative w-full h-full'>
 			<div className='top-0 left-0 h-full w-full hover:bg-black/70 transition-all duration-200 absolute p-4 opacity-0 hover:opacity-100 flex justify-center'>
 				<p className='text-lg font-bold select-none text-center'>
 					{movie.title}
@@ -22,7 +22,7 @@ const MovieCard = ({ movie }) => {
 						: `https://www.jakartaplayers.org/uploads/1/2/5/5/12551960/2297419_orig.jpg`
 				}
 				alt='movie poster'
-				className=''
+				className='w-full object-contain'
 			/>
 		</div>
 	);

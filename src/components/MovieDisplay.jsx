@@ -10,7 +10,7 @@ const MovieDisplay = ({ isLoading, movies }) => {
 					<FadeLoader color='#bd852c' speedMultiplier={2} />
 				</div>
 			)}
-			<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 place-items-center gap-4 p-4 lg:px-0 '>
+			<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 place-items-center gap-4 p-4 lg:px-0 overflow-hidden'>
 				{movies &&
 					movies?.map((movie) => {
 						return <MovieCard key={movie.id} movie={movie} />;
