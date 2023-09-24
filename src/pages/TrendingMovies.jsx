@@ -25,7 +25,7 @@ const TrendingMovies = ({ popularMovies, isLoading }) => {
 										<p className='text-lg font-bold select-none text-center'>
 											{movie.title}
 										</p>
-										<p className='text-sm mt-12 select-none  text-justify'>
+										<p className='text-sm mt-12 select-none hidden md:block text-justify'>
 											{movie.overview.length > 150
 												? `${movie.overview.slice(0, 160)}...`
 												: movie.overview}
